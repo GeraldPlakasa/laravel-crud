@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 class QuestionModel{
 
 	public static function get_by_id($id){
-		$items = DB::table('questions')->where('id', '=', $id)->get();
+		$items = DB::table('questions')->where('id', '=', $id)->first();
 		return $items;
 	}
 

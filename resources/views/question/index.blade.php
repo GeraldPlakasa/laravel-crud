@@ -23,9 +23,7 @@
       	<td> {{$value->title}} </td>
       	<td> {{$value->content}} </td>
         <td>
-          <a href="/answer/{{$key + 1}}">
-            <button type="button" class="btn btn-info">Lihat Jawaban</button>           
-          </a>
+          <a href="/questions/{{$value->id}}" class="btn btn-info">Lihat</a>
         </td>
       </tr>
       

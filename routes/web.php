@@ -28,7 +28,9 @@ Route::post('/item', 'ItemsController@store');
 Route::get('/questions', 'QuestionController@index');
 Route::get('/questions/create', 'QuestionController@create');
 Route::post('/questions', 'QuestionController@store');
+Route::get('/questions/{id}', 'QuestionController@detail');
+Route::post('/questions/{id}', 'AnswerController@store');
 
 Route::get('/answer/{question_id}', 'AnswerController@index');
 Route::get('/answer/{question_id}/create', 'AnswerController@create');
-Route::post('/answer/{question_id}', 'AnswerController@store');
+

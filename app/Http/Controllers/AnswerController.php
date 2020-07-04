@@ -15,8 +15,7 @@ class AnswerController extends Controller
 
     public function create($question_id){
     	$question = QuestionModel::get_by_id($question_id);
-    	// dd($question);
-    	return view('answer.form', compact('question', 'question_id'));
+    	return view('answer.form', compact('question'));
     }
 
     public function store(Request $request){
@@ -26,9 +25,9 @@ class AnswerController extends Controller
     	$cek = AnswerModel::save($data);
 
     	if ($cek == true) {
-    		$answers = AnswerModel::get_by_id($data['question_id']);
-    		$question_id = $data['question_id'];
-    		return view('answer.index', compact('answers', 'question_id'));
+            $question = QuestionModel::get_by_id($data['question_id']);
+            $answers = AnswerModel::get_by_id($data['question_id']);
+            return view('question.detail', compact('question', 'answers'));
     	}
     }
 }
