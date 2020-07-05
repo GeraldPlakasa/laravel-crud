@@ -34,4 +34,24 @@ class QuestionController extends Controller
         $answers = AnswerModel::get_by_id($id);
         return view('question.detail', compact('question', 'answers'));
     }
+
+    public function edit($id){
+        $question = QuestionModel::get_by_id($id);
+        return view('question.edit', compact('question'));
+    }
+
+    public function update($id, Request $request){
+        $data = $request->all();
+        unset($data['_token']);
+        unset($data['_method']);
+
+        $question = QuestionModel::update($id, $data);
+        return redirect('/questions');
+    }
+
+    public function destroy($id){
+        $question = QuestionModel::destroy($id);
+        $answer = AnswerModel::destroy($id);
+        return redirect('/questions');
+    }
 }

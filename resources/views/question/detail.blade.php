@@ -10,7 +10,9 @@
   <p class="bg-info py-3">{{$question->content}}</p>
   <br>
 
-  <h3 class="mb-3">Jawaban <a href="/answer/{{$question->id}}/create" class="btn btn-info">+</a></h3>
+  <h3 class="mb-3">
+    Jawaban <a href="/answer/{{$question->id}}/create" class="btn btn-info"><i class="fas fa-plus"></i></a>
+  </h3>
   <table class="table table-hover">
     <thead>
       <tr>

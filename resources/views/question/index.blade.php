@@ -12,7 +12,7 @@
         <th>No</th>
         <th>Title</th>
         <th>Content</th>
-        <th></th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +24,12 @@
       	<td> {{$value->content}} </td>
         <td>
           <a href="/questions/{{$value->id}}" class="btn btn-info">Lihat</a>
+          <a href="/questions/{{$value->id}}/edit" class="btn btn-default">Edit</a>
+          <form action="/questions/{{$value->id}}" method="post" style="display: inline;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>    
+          </form>
         </td>
       </tr>
       

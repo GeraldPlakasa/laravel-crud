@@ -19,4 +19,16 @@ class QuestionModel{
 		$new_questions = DB::table('questions')->insert($questions);
 		return $new_questions;
 	}
+
+	public static function update($id, $question){
+		$question = DB::table('questions')
+					->where('id', $id)
+					->update($question);
+		return $question;
+	}
+
+	public static function destroy($id){
+		$question = DB::table('questions')->where('id', $id)->delete();
+		return $question;
+	}
 }

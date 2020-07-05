@@ -14,4 +14,9 @@ class AnswerModel{
 		$items = DB::table('answers')->where('question_id', '=', $id)->get();
 		return $items;
 	}
+
+	public static function destroy($id){
+		$answer = DB::table('answers')->where('question_id', $id)->delete();
+		return $answer;
+	}
 }

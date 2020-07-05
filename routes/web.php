@@ -30,6 +30,9 @@ Route::get('/questions/create', 'QuestionController@create');
 Route::post('/questions', 'QuestionController@store');
 Route::get('/questions/{id}', 'QuestionController@detail');
 Route::post('/questions/{id}', 'AnswerController@store');
+Route::get('/questions/{id}/edit', 'QuestionController@edit');
+Route::put('/questions/{id}', 'QuestionController@update');
+Route::delete('/questions/{id}', 'QuestionController@destroy');
 
 Route::get('/answer/{question_id}', 'AnswerController@index');
 Route::get('/answer/{question_id}/create', 'AnswerController@create');
